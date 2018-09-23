@@ -46,7 +46,7 @@ body {
   background-color: #f5f5f5;
   min-width: 1200px;
   overflow: auto;
-  background: red url('./assets/images/bg.jpg') no-repeat fixed;
+  background: url('./assets/images/bg.jpg') no-repeat fixed;
 }
 
 .el-header {

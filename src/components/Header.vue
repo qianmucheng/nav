@@ -17,13 +17,7 @@
       </el-col>
       <el-col :span="6" :offset="4">
         <div class="grid-content nav">
-          <div class="bdsharebuttonbox">
-            <!-- <a href="#" class="bds_more" data-cmd="more"></a> -->
-            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-            <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
-          </div>
+          <share :config="share_config"></share>
         </div>
       </el-col>
     </el-row>
@@ -31,30 +25,19 @@
 </template>
 
 <script>
-window._bd_share_config = {
-  "common": {
-    "bdSnsKey": { },
-    "bdText": "",
-    "bdMini": "2",
-    "bdMiniList": false,
-    "bdPic": "",
-    "bdStyle": "1",
-    "bdSize": "32"
-  },
-  "share": {}
-};
-
 export default {
   data() {
     return {
       website: "千木呈",
-      navs: [{
-        label: '轻松一刻',
-        href: 'http://www.52rkl.cn',
-      },{
-        label: '关于',
-        href: '#',
-      }]
+      share_config: {
+        url                 : 'https://qianmucheng.github.io/nav', // 网址，默认使用 window.location.href
+        source              : '千木呈-导航', // 来源（QQ空间会用到）, 默认读取head标签：<meta name="site" content="http://overtrue" />
+        title               : '千木呈-导航', // 标题，默认读取 document.title 或者 <meta name="title" content="share.js" />
+        description         : '千木呈-导航', // 描述, 默认读取head标签：<meta name="description" content="PHP弱类型的实现原理分析" />
+        sites               : ['wechat', 'qq', 'weibo', 'douban'], // 启用的站点
+        wechatQrcodeTitle   : '微信扫一扫：分享', // 微信二维码提示文字
+        wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>'
+      }
     }
   },
   methods: {
